@@ -1,0 +1,76 @@
+{
+    "data": [
+        {
+            "name": "Bayi",
+            "price": 19900,
+            "amount":14900,
+            "registered": 938,
+            "pathURL": "/index.php?_url=/order/bayi",
+            "features": [
+                { "value": "Unlimited", "label": "Disk Space" },
+                { "value": "Unlimited", "label": "Bandwidth" },
+                { "value": "Unlimited", "label": "Databases" },
+                { "value": "1", "label": "Domains" },
+                { "value": "Instant", "label": "Backup" },
+                { "value": "Domain", "label": "Gratis" }
+            ]
+        },
+        {
+            "name": "Pelajar",
+            "price": 46900,
+            "amount":23450,
+            "registered": 4168,
+            "pathURL": "/index.php?_url=/order/pelajar",
+            "features": [
+                { "value": "Unlimited", "label": "Disk Space" },
+                { "value": "Unlimited", "label": "Bandwidth" },
+                { "value": "Unlimited", "label": "POP3 Email" },
+                { "value": "Unlimited", "label": "Databases" },
+                { "value": "10", "label": "Add-ons Domains" },
+                { "value": "Instant", "label": "Backup" },
+                { "value": "Domain", "label": "Gratis Selamanya" },
+                { "value": "Unlimited SSL", "label": "Gratis Selamanya" }
+            ]
+        },
+        {
+            "isBestSeller": true,
+            "name": "Personal",
+            "price": 58900,
+            "amount":38900,
+            "registered": 10017,
+            "pathURL": "/index.php?_url=/order/personal",
+            "features": [
+                { "value": "Unlimited", "label": "Disk Space" },
+                { "value": "Unlimited", "label": "Bandwidth" },
+                { "value": "Unlimited", "label": "POP3 Email" },
+                { "value": "Unlimited", "label": "Databases" },
+                { "value": "Unlimited", "label": "Add-ons Domains" },
+                { "value": "Instant", "label": "Backup" },
+                { "value": "Domain", "label": "Gratis Selamanya" },
+                { "value": "Unlimited SSL", "label": "Gratis Selamanya" },
+                { "value": "Private", "label": "Name Server" },
+                { "value": "SpamAssasin", "label": "Mail Protection" }
+            ]
+        },
+        {
+            "name": "Bisnis",
+            "price": 109900,
+            "amount":65900,
+            "registered": 3552,
+            "pathURL": "/index.php?_url=/order/bisnis",
+            "features": [
+                { "value": "Unlimited", "label": "Disk Space" },
+                { "value": "Unlimited", "label": "Bandwidth" },
+                { "value": "Unlimited", "label": "POP3 Email" },
+                { "value": "Unlimited", "label": "Databases" },
+                { "value": "Unlimited", "label": "Add-ons Domains" },
+                { "value": "Instant", "label": "Backup" },
+                { "value": "Domain", "label": "Gratis Selamanya" },
+                { "value": "Unlimited SSL", "label": "Gratis Selamanya" },
+                { "value": "Private", "label": "Name Server" },
+                { "value": "Prioritas", "label": "Layanan Support" },
+                { "value": "SpamExpert", "label": "Pro Mail Protection" }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>
+    Niagahoster.com - PHP Hosting
+  </title>
+  <link rel="shortcut icon" href="assets/images/favicon.png">
+  <meta name="description" content="Niagahoster.com - PHP Hosting" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <link href="assets/fonts/font.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/tailwindcss.min.css" />
+  <script defer src="assets/js/alpine-3.x.x.min.js"></script>
+  <script lang="text/javascript">
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('pricing', () => ({
+        bbhost: '',
+        packages: [],
+        error: false,
+        init() {
+          this.bbhost = `${window.location.protocol}//${window.location.hostname}:8004`
+          fetch('packages.json')
+            .then(response => response.json())
+            .then(json => this.packages = json.data)
+            .catch(error => {
+              this.error = String(error)
+              console.warn('ERROR', error);
+            })
+        }
+      }))
+    });
+  </script>
+</head>
+
+<body class="leading-normal tracking-normal text-gray-600" style="font-family: 'Roboto', sans-serif;">
+  <!--Nav-->
+  <nav id="top" class="hidden lg:block w-full max-w-5xl mx-auto">
+    <div class="mx-auto flex flex-wrap items-center justify-between mt-0">
+      <!-- Left -->
+      <div class="pl-4 flex items-center">
+        <div class="relative pl-10">
+          <div class="absolute left-0 -top-7 w-full">
+            <a class="flex flex-row items-center text-xs no-underline hover:no-underline whitespace-nowrap" href="#">
+              <span class="relative -top-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-500" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 absolute top-5 left-4 text-white"
+                  viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z"
+                    clip-rule="evenodd" />
+                </svg>
+              </span>
+              <span class="pt-1">
+                Gratis Ebook 9 Cara Menggunakan Domain [x]
+              </span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <!-- Right -->
+      <div class="flex-wrap flex items-center">
+        <div class="flex flex-row gap-4 pr-3 py-2 text-xs text-gray-400">
+          <div class="flex flex-row items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+            </svg>
+            <span class="ml-1">0274-5305505</span>
+          </div>
+          <div class="flex flex-row items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+            </svg>
+            <span class="ml-1">Live Chat</span>
+          </div>
+          <div class="flex flex-row items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="ml-1">Member Area</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <hr class="border-b-0.5 border-gray-200 opacity-75 my-0 py-0" />
+  <nav id="header" class="w-full max-w-5xl mx-auto">
+    <div class="w-full mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+      <div class="pl-4 flex items-center">
+        <a class="no-underline hover:no-underline" href="#">
+          <img class="object-cover h-12" src="assets/images/niagahoster-logo.png" alt="logo">
+        </a>
+      </div>
+      <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white p-4 lg:p-0 z-20"
+        id="nav-content">
+        <ul class="list-reset lg:flex justify-end flex-1 items-center text-sm text-gray-400">
+
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Hosting</a>
+          </li>
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Domain</a>
+          </li>
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Server</a>
+          </li>
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Website</a>
+          </li>
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Afiliasi</a>
+          </li>
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Promo</a>
+          </li>
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Pembayaran</a>
+          </li>
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Review</a>
+          </li>
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Kontak</a>
+          </li>
+          <li class="mr-1">
+            <a class="inline-block py-2 px-2 hover:text-gray-800" href="#">Blog</a>
+          </li>
+        </ul>
+      </div>
+      <div class="block lg:hidden pr-4">
+        <button id="nav-toggle"
+          class="flex items-center p-1 text-gray-800 hover:text-gray-500 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <hr class="border-b-0.5 border-gray-200 opacity-75 my-0 py-0" />
+  <!--Hero-->
+  <section class="bg-white px-4 md:px-6 mb-8 mt-10">
+    <div class="container max-w-5xl mx-auto">
+      <div class="px-3 mx-auto flex flex-col-reverse md:flex-row items-center gap-8">
+        <!--Left Col-->
+        <div class="flex flex-col w-full md:w-3/5 justify-center items-start text-center md:text-left">
+          <div class="">
+            <h3 class="font-montserrat font-bold text-4xl">PHP Hosting</h3>
+            <div class="font-montserrat font-light text-3xl">
+              Cepat, handal, penuh dengan modul PHP yang Anda butuhkan
+            </div>
+            <div class="font-montserrat font-light text-xs text-gray-500 my-5">
+              <div class="flex items-center pb-2 dark:border-gray-700 cursor-pointer w-full space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                <h4 class="">
+                  Solusi PHP untuk performa query yang lebih cepat.
+                </h4>
+              </div>
+              <div class="flex items-center pb-2 dark:border-gray-700 cursor-pointer w-full space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                <h4 class="">
+                  Konsumsi memori yang lebih rendah.
+                </h4>
+              </div>
+              <div class="flex items-center pb-2 dark:border-gray-700 cursor-pointer w-full space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                <h4 class="">
+                  Support PHP 5.3, PHP 5.4., PHP 5.5. PHP 5.6, PHP 7
+                </h4>
+              </div>
+              <div class="flex items-center pb-2 dark:border-gray-700 cursor-pointer w-full space-x-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-400" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                <h4 class="">
+                  Fitur enkripsi lonCube dan Zend Guard Loaders
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Right Col-->
+        <div class="w-full px-8 md:w-2/5 md:px-1  py-6 items-center">
+          <img class="" src="assets/svg/illustration banner PHP hosting-01.svg" alt="hosting fitur hosting singapura" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="border-b-0.5 border-gray-200 opacity-75 my-0 py-0" />
+  <!--Feature-->
+  <section class="bg-white px-4 md:px-6 mt-12 mb-20">
+    <div class="container max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+        <div class="flex flex-col gap-1">
+          <embed class="object-fit h-32 w-48 " src="assets/svg/icon-php-hosting-ioncube.svg" alt="feature-image" />
+          <div class="font-montserrat font-light text-xs text-center">PHP Zend Guard Loader</div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <embed class="object-fit h-32 w-48 " src="assets/svg/icon-composer.svg" alt="icon-php-hosting-ioncube" />
+          <div class="font-montserrat font-light text-xs text-center">PHP Composer</div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <embed class="object-fit h-32 w-48 " src="assets/svg/illustration-banner-PHP-zenguard01.svg"
+            alt="feature-image" />
+          <div class="font-montserrat font-light text-xs text-center">PHP ionCube Loader</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Pricing-->
+  <section class="bg-white px-4 md:px-10 mb-16">
+    <div class="container max-w-5xl mx-auto" x-data="pricing">
+      <div class="flex items-center flex-col mb-5">
+        <h3 class="font-montserrat font-bold text-2xl text-center pt-4">
+          Paket Hosting Singapura yang tepat
+        </h3>
+        <p class="font-montserrat font-light text-xl text-center">
+          Diskon 40% + Domain SSL Gratis Untuk Anda
+        </p>
+      </div>
+      <div x-show="error" class="flex place-center justify-center ">
+        <div class="flex flex-col justify-center items-center text-sm bg-yellow-100 rounded-lg p-3">
+          <div class="font-roboto text-light">Message: <span class="italic" x-text="error"></span></div>
+          <div class="font-roboto text-xs italic mt-5">
+            NB: Please run in webserver.
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:w-9/10 gap-8 lg:gap-x-0 mt-10 mx-auto">
+        <template x-for="package in packages || []">
+          <div class="relative flex-none">
+            <!-- component -->
+            <div x-show="package.isBestSeller"
+              class="flex-none border border-gray-200 rounded text-center border-blue-600">
+              <div class="border-b px-4 py-2 font-montserrat font-bold text-xl text-white bg-blue-600 border-blue-600">
+                <span x-text="package.name"></span>
+              </div>
+              <div class="border-b px-4 py-2 font-montserrat text-sm text-white bg-blue-600 border-blue-600">
+                <div class="flex flex-col">
+                  <span class="line-through" x-text="'Rp. ' + Intl.NumberFormat('id-ID').format(package.price)"></span>
+                  <span>Rp
+                    <span class=" font-montserrat font-bold">
+                      <span class="text-4xl"
+                        x-text="Intl.NumberFormat('id-ID').format(String(package.amount).substr(0, String(package.amount).length - 3))"></span>.
+                      <span x-text="String(package.amount).substr(-3)"></span>
+                    </span>
+                    /bln
+                  </span>
+                </div>
+              </div>
+              <div class="border-b px-4 py-2 text-sm font-roboto text-center text-white bg-blue-700 border-blue-700">
+                <span class="font-bold" x-text="Intl.NumberFormat('id-ID').format(package.registered)"></span>
+                Pengguna terdaftar
+              </div>
+              <div class="flex flex-col items-center gap-2 font-roboto-condensed text-sm">
+                <template x-for="feature in package.features">
+                  <div class="flex flex-row px-4">
+                    <span class="font-semibold mr-2" x-text="feature.value"></span>
+                    <span x-text="feature.label"></span>
+                  </div>
+                </template>
+              </div>
+              <div class="flex justify-center py-4">
+                <a class="border-2 border-blue-600 rounded-full bg-blue-600 font-bold text-white text-sm py-1 px-4"
+                  x-bind:href="bbhost + package.pathURL" x-bind:target="`_${package.name}`">
+                  Pilih Sekarang
+                </a>
+              </div>
+            </div>
+            <div x-show="!package.isBestSeller" class=" border border-gray-200 rounded text-center">
+              <h3 class="border-b px-4 py-2 font-montserrat font-bold text-xl">
+                <span x-text="package.name"></span>
+              </h3>
+              <div class="border-b px-4 py-2 font-montserrat text-sm">
+                <div class="flex flex-col">
+                  <span class="line-through">Rp 61.800</span>
+                  <span>Rp
+                    <span class=" font-montserrat font-bold">
+                      <span class="text-4xl"
+                        x-text="String(package.amount).substr(0, String(package.amount).length - 3)"></span>.
+                      <span x-text="String(package.amount).substr(-3)"></span>
+                    </span>
+                    /bln
+                  </span>
+                </div>
+              </div>
+              <div class="border-b px-4 py-2 text-sm font-roboto text-center">
+                <span class="font-roboto-condensed font-bold" x-text="package.registered"></span>
+                Pengguna terdaftar
+              </div>
+              <div class="flex flex-col items-center gap-2 font-roboto-condensed text-sm">
+                <template x-for="feature in package.features">
+                  <div class="flex flex-row px-4">
+                    <span class="font-semibold mr-2" x-text="feature.value"></span>
+                    <span x-text="feature.label"></span>
+                  </div>
+                </template>
+              </div>
+              <div class="flex justify-center py-4">
+                <a class="border-2 border-gray-600 text-gray-600 rounded-full font-bold text-sm py-1 px-4"
+                  x-bind:href="bbhost + package.pathURL" x-bind:target="`_${package.name}`">
+                  Pilih Sekarang
+                </a>
+              </div>
+            </div>
+            <div x-show="package.isBestSeller" class="absolute -top-0.5 -left-0.5 overflow-hidden h-20 w-20">
+              <div class="p-0.5 origin-top float-left mt-6 ml-6 w-72 bg-green-500 filter shadow-2xl"
+                style="transform:translateX(-50%) rotate(315deg);">
+                <div class="text-white text-sm text-center font-bold">Best Seller</div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </section>
+  <!--Fitur Powerful-->
+  <section class="bg-white px-4 md:px-10 mb-16">
+    <div class="container max-w-5xl mx-auto pt-16">
+      <h3 class="font-montserrat font-light text-2xl text-center mb-10 mx-5">
+        Powerful dengan Limit PHP yang Lebih Besar
+      </h3>
+      <div class="mx-5">
+        <div class="grid sm:grid-cols-2 text-md mb-10 separator divide-x divide-y border">
+          <div class="flex flex-row items-center justify-center p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-6 w-6 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="flex-grow text-center px-4">max execution time 300s</span>
+          </div>
+          <div class="flex flex-row items-center justify-center p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-6 w-6 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="flex-grow text-center px-4">php memory limit 1024 MB</span>
+          </div>
+          <div class="flex flex-row items-center justify-center p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-6 w-6 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="flex-grow text-center px-4">upload max filesize 128 MB </span>
+          </div>
+          <div class="flex flex-row items-center justify-center p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-6 w-6 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="flex-grow text-center px-4">max execution time 300s</span>
+          </div>
+          <div class="flex flex-row items-center justify-center p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-6 w-6 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="flex-grow text-center px-4">post max size 128 MB</span>
+          </div>
+          <div class="flex flex-row items-center justify-center p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-6 w-6 text-green-500" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="flex-grow text-center px-4">max input vars 2500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Fitur Paket -->
+  <section class="bg-white px-4 md:px-10 mb-16">
+    <div class="container max-w-5xl mx-auto">
+      <h3 class="font-montserrat text-2xl font-light text-center mb-10 sm:w-3/5 md:w-full mx-auto">
+        Semua Paket Hosting sudah Termasuk
+      </h3>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5">
+        <div class="flex flex-col items-center mb-4">
+          <img class="object-fit w-20 mb-4" src="assets/svg/icon PHP Hosting_PHP Semua Versi.svg"
+            alt="icon PHP Hosting_PHP Semua Versi">
+          <div class="text-center">
+            <div class="font-montserrat font-bold">PHP Semua Versi</div>
+            <div class="text-gray-500 text-sm">
+              Pilih mulai versi PHP 5.3 s/d 7 Ubah sesuka anda.
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center mb-4">
+          <img class="object-fit w-20 mb-4" src="assets/svg/icon PHP Hosting_My SQL.svg" alt="icon PHP Hosting_My SQL">
+          <div class="text-center">
+            <div class="font-montserrat font-bold">MySQL versi 5.6</div>
+            <div class="text-gray-500 text-sm">
+              Nikmati MySQL versi terbaru, tercepat, dan kaya akan fitur.
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center mb-4">
+          <img class="object-fit w-20 mb-4" src="assets/svg/icon PHP Hosting_CPanel.svg"
+            alt="icon PHP Hosting_CPanel.svg">
+
+          <div class="text-center">
+            <div class="font-montserrat font-bold">Panel Hosting cPanel</div>
+            <div class="text-gray-500 text-sm">
+              Kelola website dengan panel canggih yang familiar di hati anda.
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center mb-4">
+          <img class="object-fit w-20 mb-4" src="assets/svg/icon PHP Hosting_garansi uptime.svg"
+            alt="icon PHP Hosting_garansi uptime">
+          <div class="text-center">
+            <div class="font-montserrat font-bold">Garansi Uptime 99.9%</div>
+            <div class="text-gray-500 text-sm">
+              Data center yang mendukung kelangsungan website anda 24/7
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center mb-4">
+          <img class="object-fit w-20 mb-4" src="assets/svg/icon PHP Hosting_InnoDB.svg" alt="icon PHP Hosting_InnoDB">
+          <div class="text-center">
+            <div class="font-montserrat font-bold">Database InnoDB Unlimited</div>
+            <div class="text-gray-500 text-sm">
+              Jumalh ukuran database yang tumbuh sesuai kebutuhan anda.
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-center mb-4">
+          <img class="object-fit w-20 mb-4" src="assets/svg/icon PHP Hosting_My SQL remote.svg"
+            alt="icon PHP Hosting_My SQL remote.svg">
+          <div class="text-center">
+            <div class="font-montserrat font-bold">Wildcard Remote MySQL</div>
+            <div class="text-gray-500 text-sm">
+              Mendukung s/d 25 max_user_connections dan 100 max_connections
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Fitur Laravel -->
+  <section class="bg-white px-4 md:px-10 mb-16">
+    <div class="container max-w-5xl mx-auto">
+      <h3 class="font-montserrat text-2xl font-light text-center mb-10 sm:w-3/5 md:w-full mx-auto">
+        Mendukung Penuh Framework Laravel
+      </h3>
+      <div class="flex flex-col md:flex-row">
+        <!-- Left -->
+        <div class="flex-col w-full md:w-1/2 px-4 pr-2 mb-10">
+          <div class="font-montserrat font-light mb-4">
+            Tak perlu menuggunakan dedicated server ataupun VPS yang mahal.
+            Layanan PHP Hosting murah kami mendukung penuh framework favorit anda.
+          </div>
+          <div class="text-sm mb-4">
+            <div class="flex flex-row items-center gap-x-2 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-5 w-5 text-green-500" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span class="flex-grow">Install Laravel 1-click dengan softaculous Installer</span>
+            </div>
+            <div class="flex flex-row items-center gap-x-2 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-5 w-5 text-green-500" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span class="flex-grow">
+                Mendukung ekstensi <b>PHP MCrypt</b>, <b>phar</b>, <b>mbstring</b>, dan <b>fileinfo</b>
+              </span>
+            </div>
+            <div class="flex flex-row items-center gap-x-2 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="flex-none h-5 w-5 text-green-500" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span class="flex-grow">
+                Tersedia <b>Composer</b> dan <b>SSH</b> untuk menginstal packages pilihan anda.
+              </span>
+            </div>
+          </div>
+          <div class="text-xs text-gray-400 mb-6">
+            NB: Composer dan SSH hanya tersedia pada paket Personal dan Bisnis
+          </div>
+          <div>
+            <a href="#" class="bg-blue-500 text-white font-montserrat font-bold text-sm px-6 py-3 rounded-full">
+              Pilih Hosting Anda
+            </a>
+          </div>
+        </div>
+        <!-- right -->
+        <div class="flex flex-center justify-center w-full md:w-1/2 px-4">
+          <img class="object-cover max-h-72" src="assets/svg/illustration banner support laravel hosting.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Fitur Modul-->
+  <section class="bg-white px-4 md:px-6 mb-16">
+    <div class="container max-w-5xl mx-auto pt-16">
+      <div class="font-montserrat font-light text-2xl text-center mb-10 sm:w-3/5 md:w-full mx-auto">
+        Modul Lengkap untuk Menjalankan Aplikasi PHP Anda.
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 text-md sm:w-4/5 mx-auto mb-10">
+        <span class="">IcePHP</span>
+        <span class="">stats</span>
+        <span class="">http</span>
+        <span class="">huffman</span>
+        <span class="">idn</span>
+        <span class="">nd_pdo_mysql</span>
+        <span class="">oauth</span>
+        <span class="">apc</span>
+        <span class="">stem</span>
+        <span class="">apcu</span>
+        <span class="">oci8</span>
+        <span class="">stomp</span>
+        <span class="">apm</span>
+        <span class="">odbc</span>
+        <span class="">suhosin</span>
+        <span class="">igbinary</span>
+        <span class="">imagick</span>
+        <span class="">ares</span>
+        <span class="">sybase_ct</span>
+        <span class="">bcmath</span>
+        <span class="">opcache</span>
+        <span class="">pdf</span>
+        <span class="">pdo</span>
+        <span class="">imap</span>
+        <span class="">inclued</span>
+        <span class="">sysvmsg</span>
+        <span class="">bcompiler</span>
+        <span class="">inotify</span>
+        <span class="">pdo_dblib</span>
+        <span class="">big_int</span>
+        <span class="">bitset</span>
+        <span class="">sysvsem</span>
+        <span class="">sysvshm</span>
+        <span class="">tidy</span>
+        <span class="">timezonedb</span>
+        <span class="">interbase</span>
+        <span class="">pdo_firebird</span>
+        <span class="">bloomy</span>
+        <span class="">intl</span>
+        <span class="">pdo_mysql</span>
+        <span class="">bz2_filter</span>
+        <span class="">ioncube_loader</span>
+        <span class="">pdo_odbc</span>
+        <span class="">trader</span>
+        <span class="">clamav</span>
+        <span class="">ioncube_loader_4</span>
+        <span class="">pdo_pgsql</span>
+        <span class="">translit</span>
+        <span class="">coin_acceptor</span>
+        <span class="">jsmin</span>
+        <span class="">pdo_sqlite</span>
+        <span class="">uploadprogress</span>
+        <span class="">uri_template</span>
+        <span class="">crack</span>
+        <span class="">json</span>
+        <span class="">Idap</span>
+        <span class="">pgsql</span>
+        <span class="">phalcon</span>
+        <span class="">uuid</span>
+        <span class="">dba</span>
+      </div>
+      <div class="flex justify-center">
+        <a class="border-2 border-gray-600 rounded-full py-3 px-6" href="#">
+          Selengkapnya
+        </a>
+      </div>
+    </div>
+
+
+
+  </section>
+  <!-- Fitur Linux -->
+  <section class="bg-white px-4 md:px-10 mb-16">
+    <div class="container max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-x-10">
+        <!-- Left -->
+        <div class="flex-col w-full md:w-1/2 px-4 pr-2 mb-10">
+          <h3 class="font-montserrat text-2xl font-light text-left mb-4 mx-auto">
+            Linux Hosting yang Stabil dengan Teknologi LVE
+          </h3>
+          <div class="font-roboto font-light text-sm text-gray-500 mb-10">
+            SuperMicro <b>Intel Xeon 24-Cores</b> server dengan RAM <b>128</b> dan teknologi <b>LVE CloudLinux</b>
+            untuk stabilitas server anda. Dilengkapi dengan <b>SSD</b> untuk kecepatan <b>MySQL</b> dan caching.
+            Apache Load Balancer berbasis LiteSpeed Technologies. <b>CageFS</b> security, <b>Raid-10</b> Protection
+            dan auto Backup untuk keamanan website PHP anda.
+          </div>
+          <div class="mb-12">
+            <a href="#" class="bg-blue-500 text-white font-montserrat font-bold text-sm px-6 py-3 rounded-full">
+              Pilih Hosting Anda
+            </a>
+          </div>
+          <div class="text-sm text-gray-600 mb-4">
+            Bagikan jika anda menyukai halaman ini.
+          </div>
+        </div>
+        <!-- right -->
+        <div class="flex flex-center justify-center w-full md:w-1/2 px-4">
+          <img class="object-cover max-h-72" src="assets/images/Image support.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Bantuan -->
+  <section class="w-full bg-blue-500 py-10">
+    <div class="container max-w-6xl mx-auto font-montserrat text-white">
+      <div class="flex lg:flex-row flex-col justify-around items-center gap-4 px-4">
+        <p class="text-3xl text-center lg:text-left">
+          <span class="whitespace-nowrap">Perlu <b>Bantuan ? </b></span>
+          <span class="whitespace-nowrap">Hubungi Kami: </span>
+          <b class="whitespace-nowrap">0274-5305505</b>
+        </p>
+        <a class="flex flex-row items-center gap-4 px-6 py-3 border-2 rounded-full" href="#">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+          </svg>
+          Live Chat
+        </a>
+      </div>
+    </div>
+  </section>
+  <!--Footer-->
+  <footer class="text-gray-300 py-8" style="background-color: #373737;">
+    <!-- Elements -->
+    <div class="container max-w-6xl mx-auto mb-5">
+      <div class="flex flex-wrap gap-y-8 px-4 font-roboto text-sm">
+        <!-- HUBUNGI KAMI -->
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <p class="pb-2 text-gray-400 font-bold">HUBUNGI KAMI</p>
+          <div class="">
+            <a class="" href="tel:+622150861682">0274-5305505</a>
+            <p>Senin - Minggu</p>
+            <p>24 Jam Nonstop</p>
+            <p class="pt-4">
+              Jl. Selokan Mataram Monjali<br>
+              Karang Jati MT I/304<br>
+              Siduadi, Mlati, Sleman.<br>
+              Yogyakarta, 55284
+            </p>
+          </div>
+        </div>
+        <!-- LAYANAN -->
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <p class="pb-2 text-gray-400 font-bold">LAYANAN</p>
+          <ul class="">
+            <li><a href="#">Domain</a></li>
+            <li><a href="#">Shared Hosting</a></li>
+            <li><a href="#">Cloud VPS Hosting</a></li>
+            <li><a href="#">MAnage VPS Hosting</a></li>
+            <li><a href="#">Web Builder</a></li>
+            <li><a href="#">Keamanan SSL / HTTPS</a></li>
+            <li><a href="#">Program Afiliasi</a></li>
+            <li><a href="#">Jasa Pembuatan Website</a></li>
+          </ul>
+        </div>
+        <!-- SERVICE HOSTING -->
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <p class="pb-2 text-gray-400 font-bold">SERVICE HOSTING</p>
+          <ul class="">
+            <li><a href="#">Hosting Murah</a></li>
+            <li><a href="#">Hosting Indonesia</a></li>
+            <li><a href="#">Hosting Singapore SG</a></li>
+            <li><a href="#">Hosting PHP</a></li>
+            <li><a href="#">Hosting Wordpress</a></li>
+            <li><a href="#">Hosting Laravel</a></li>
+          </ul>
+        </div>
+        <!-- TUTORIAL -->
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <p class="pb-2 text-gray-400 font-bold">TUTORIAL</p>
+          <ul class="">
+            <li><a href="#">Knowledgebase</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Cara Pembayaran</a></li>
+          </ul>
+        </div>
+        <!-- TENTANG KAMI -->
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <p class="pb-2 text-gray-400 font-bold">TENTANG KAMI</p>
+          <ul class="">
+            <li><a href="#">Tim Niagahoster</a></li>
+            <li><a href="#">Karir</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Penawaran &amp; Promo Spesial</a></li>
+            <li><a href="#">Kontak Kami</a></li>
+          </ul>
+        </div>
+        <!-- KENAPA PILIH NIAGAHOSTER -->
+        <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+          <p class="pb-2 text-gray-400 font-bold">KENAPA PILIH NIAGAHOSTER?</p>
+          <ul class="">
+            <li><a href="#">Support Terbaik</a></li>
+            <li><a href="#">Garansi Harga Termurah</a></li>
+            <li><a href="#">Domain Gratis Selamanya</a></li>
+            <li><a href="#">Datacenter Hosting Terbaik</a></li>
+            <li><a href="#">Review Pelanggan</a></li>
+          </ul>
+        </div>
+        <!-- NEWSLETTER -->
+        <div class="w-full sm:w-1/2 lg:w-1/4 pr-2">
+          <p class="pb-2 text-gray-400 font-bold">NEWSLETTER</p>
+          <div class="max-w-32 bg-white text-gray-500 border-2 border-gray-200 rounded-full p-0.5 mb-2">
+            <label class="sr-only" for="email"> Email </label>
+            <form class="flex flex-row gap-x-2" method="get" action="" id="newsletter_submit">
+              <input class="bg-transparent w-full py-1 px-2 text-sm focus:outline-none" id="email" type="email"
+                placeholder="Email" />
+
+              <button class="px-2 bg-blue-600 text-white text-xs rounded-full" type="button">
+                Berlangganan
+              </button>
+            </form>
+          </div>
+          <p class="text-gray-500">Dapatkan promo dan konten menarik dari penyedia <a
+              href="https://www.niagahoster.co.id/" class="internal-link">web hosting</a> Anda.</p>
+        </div>
+        <!-- SOCIAL -->
+        <div class="w-full sm:w-1/2 lg:w-1/4">
+          <div class="flex flex-row gap-2 mt-5">
+            <a class="p-2 border-2 rounded-full" href="#">
+              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
+                viewBox="0 0 48 48" style="fill: #ddd;">
+                <path
+                  d="M20.5,46c-1.378,0-2.5-1.121-2.5-2.5V26l-4.45,0.003c-1.367,0-2.489-1.11-2.501-2.476l-0.029-3.003 c-0.006-0.673,0.25-1.306,0.724-1.783C12.216,18.263,12.847,18,13.52,18H18v-4.5c0-6.746,3.442-10.462,9.691-10.462 c2.472,0,4.63,0.175,4.65,0.177c0.965,0.086,1.691,0.88,1.691,1.847v4.57c0,1.022-0.832,1.854-1.854,1.854h-2.908 c-1.217,0-2.208,0.99-2.208,2.208L27.006,18h4.438c0.713,0,1.393,0.306,1.867,0.838s0.699,1.243,0.616,1.951l-0.349,3 C33.432,25.05,32.364,26,31.096,26H27v17.5c0,1.379-1.122,2.5-2.5,2.5H20.5z">
+                </path>
+              </svg>
+            </a>
+            <a class="p-2 border-2 rounded-full" href="#">
+              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+                viewBox="0 0 30 30" style=" fill:#ddd;">
+                <path
+                  d="M28,6.937c-0.957,0.425-1.985,0.711-3.064,0.84c1.102-0.66,1.947-1.705,2.345-2.951c-1.03,0.611-2.172,1.055-3.388,1.295 c-0.973-1.037-2.359-1.685-3.893-1.685c-2.946,0-5.334,2.389-5.334,5.334c0,0.418,0.048,0.826,0.138,1.215 c-4.433-0.222-8.363-2.346-10.995-5.574C3.351,6.199,3.088,7.115,3.088,8.094c0,1.85,0.941,3.483,2.372,4.439 c-0.874-0.028-1.697-0.268-2.416-0.667c0,0.023,0,0.044,0,0.067c0,2.585,1.838,4.741,4.279,5.23 c-0.447,0.122-0.919,0.187-1.406,0.187c-0.343,0-0.678-0.034-1.003-0.095c0.679,2.119,2.649,3.662,4.983,3.705 c-1.825,1.431-4.125,2.284-6.625,2.284c-0.43,0-0.855-0.025-1.273-0.075c2.361,1.513,5.164,2.396,8.177,2.396 c9.812,0,15.176-8.128,15.176-15.177c0-0.231-0.005-0.461-0.015-0.69C26.38,8.945,27.285,8.006,28,6.937z">
+                </path>
+              </svg>
+            </a>
+            <a class="p-2 border-2 rounded-full" href="#">
+              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50"
+                viewBox="0 0 50 50" style=" fill:#ddd;">
+                <path
+                  d="M 17.1875 10.9375 C 9.421875 10.9375 3.125 17.234375 3.125 25 C 3.125 32.765625 9.421875 39.0625 17.1875 39.0625 C 24.953125 39.0625 31.25 32.765625 31.25 25 C 31.25 24.035156 31.144531 23.09375 30.960938 22.1875 L 30.882813 21.875 L 17.1875 21.875 L 17.1875 26.5625 L 26.5625 26.5625 C 25.816406 30.996094 21.832031 34.375 17.1875 34.375 C 12.007813 34.375 7.8125 30.179688 7.8125 25 C 7.8125 19.820313 12.007813 15.625 17.1875 15.625 C 19.53125 15.625 21.667969 16.492188 23.3125 17.914063 L 26.671875 14.625 C 24.171875 12.335938 20.84375 10.9375 17.1875 10.9375 Z M 39.0625 17.1875 L 39.0625 21.875 L 34.375 21.875 L 34.375 25 L 39.0625 25 L 39.0625 29.6875 L 42.1875 29.6875 L 42.1875 25 L 46.875 25 L 46.875 21.875 L 42.1875 21.875 L 42.1875 17.1875 Z">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- PEMBAYARAN -->
+        <div class="w-full">
+          <p class="pb-2 text-gray-400 font-bold">PEMBAYARAN</p>
+          <ul class="flex flex-wrap gap-4 pb-2">
+            <span class="w-16">
+              <img src="https://www.niagahoster.co.id/assets/images/new_design/logo-bca-bordered.svg"
+                data-src="https://www.niagahoster.co.id/assets/images/new_design/logo-bca-bordered.svg" alt="bank bca"
+                class="bank-logo">
+            </span>
+            <span class="w-16">
+              <img src="https://www.niagahoster.co.id/assets/images/new_design/mandiriclickpay.svg"
+                data-src="https://www.niagahoster.co.id/assets/images/new_design/mandiriclickpay.svg"
+                alt="mandiri clickpay" class="bank-logo">
+            </span>
+            <span class="w-16">
+              <img src="https://www.niagahoster.co.id/assets/images/new_design/logo-bni-bordered.svg"
+                data-src="https://www.niagahoster.co.id/assets/images/new_design/logo-bni-bordered.svg" alt="bank bni"
+                class="bank-logo">
+            </span>
+            <span class="w-16">
+              <img src="https://www.niagahoster.co.id/assets/images/new_design/visa.svg"
+                data-src="https://www.niagahoster.co.id/assets/images/new_design/visa.svg" alt="visa" class="bank-logo">
+            </span>
+            <span class="w-16">
+              <img src="https://www.niagahoster.co.id/assets/images/new_design/mastercard.svg"
+                data-src="https://www.niagahoster.co.id/assets/images/new_design/mastercard.svg" alt="master card"
+                class="bank-logo">
+            </span>
+            <span class="w-16">
+              <img src="https://www.niagahoster.co.id/assets/images/new_design/atmbersama.svg"
+                data-src="https://www.niagahoster.co.id/assets/images/new_design/atmbersama.svg" alt="atm bersama"
+                class="bank-logo">
+            </span>
+            <span class="w-16">
+              <img src="https://www.niagahoster.co.id/assets/images/new_design/permatabank.svg"
+                data-src="https://www.niagahoster.co.id/assets/images/new_design/permatabank.svg" alt="bank permata"
+                class="bank-logo">
+            </span>
+            <span class="w-16">
+              <img src="https://www.niagahoster.co.id/assets/images/new_design/prima.svg"
+                data-src="https://www.niagahoster.co.id/assets/images/new_design/prima.svg" alt="prima"
+                class="bank-logo">
+            </span>
+            <span class="w-16">
+              <img src="https://www.niagahoster.co.id/assets/images/new_design/alto.svg"
+                data-src="https://www.niagahoster.co.id/assets/images/new_design/alto.svg" alt="alto" class="bank-logo">
+            </span>
+          </ul>
+          <p class="text-gray-500">Aktivasi instan dengan e-Payment. Hosting dan <a
+              href="https://www.niagahoster.co.id/domain-murah" class="internal-link">domain</a> langsung aktif!</p>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="container max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center gap-4 px-4 text-xs font-roboto text-center">
+        <div class="w-full md:w-7/12 md:text-left">
+          Copyright ©2006 Niagahoster | Hosting powered by PHP7,
+          CloudLinux, CloudFlare, BitNinja and DC Biznet Technovillage Jakarta<br>
+          Cloud VPS Murah powered by Webuzo Softaculous, Intel SSD and cloud computing technology
+        </div>
+        <div class="w-full md:w-7/12 md:text-right">
+          <span class="">
+            <a href="#">Syarat dan Ketentuan</a> |
+            <a href="#">Kebijakan Privasi</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
